@@ -1,7 +1,3 @@
-/*
- * Nicholas Lewis
- * Class for asteroid obstacle
- */
 function Asteroid(spriteSource, posX, posY, light) 
 {
     // source for the wing image

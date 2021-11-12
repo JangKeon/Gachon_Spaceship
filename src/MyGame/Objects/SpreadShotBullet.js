@@ -1,16 +1,9 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function SpreadShotBullet(spriteSource, rotation, size, speed) 
 {
     // source for the wing image
     this.kSpriteSource = spriteSource;
     this.valid = true; 
     this.mSprite = new SpriteRenderable(this.kSpriteSource);
-    //325 490
     this.mSprite.setElementPixelPositions(737, 774, 374, 411);
     this.mSprite.getXform().setSize(size[0], size[1]);
     this.mSprite.getXform().setRotationInRad(rotation);

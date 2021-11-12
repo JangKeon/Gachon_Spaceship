@@ -1,9 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function Enemy(spriteRenderable) 
 {
     GameObject.call(this, spriteRenderable);
@@ -45,16 +39,16 @@ Enemy.prototype.hit = function(damage){
 // Orientate the entire object to point towards point p
 // will rotate Xform() accordingly
 Enemy.prototype.rotateObjPointTo = function (p, rate) {
-    // Step A: determine if reach the destination position p
+    // determine if reach the destination position p
     var dir = [];
     vec2.sub(dir, p, this.getXform().getPosition());
     var len = vec2.length(dir);
     if (len < Number.MIN_VALUE) {
-        return; // we are there.
+        return; 
     }
     vec2.scale(dir, dir, 1 / len);
 
-    // Step B: compute the angle to rotate
+    // compute the angle to rotate
     var fdir = this.getCurrentFrontDir();
     var cosTheta = vec2.dot(dir, fdir);
 
@@ -62,8 +56,7 @@ Enemy.prototype.rotateObjPointTo = function (p, rate) {
         return;
     }
 
-    // Step C: clamp the cosTheda to -1 to 1 
-    // in a perfect world, this would never happen! BUT ...
+    // clamp the cosTheda to -1 to 1 
     if (cosTheta > 1) {
         cosTheta = 1;
     } else {
@@ -72,7 +65,7 @@ Enemy.prototype.rotateObjPointTo = function (p, rate) {
         }
     }
 
-    // Step D: compute whether to rotate clockwise, or counterclockwise
+    // compute whether to rotate clockwise, or counterclockwise
     var dir3d = vec3.fromValues(dir[0], dir[1], 0);
     var f3d = vec3.fromValues(fdir[0], fdir[1], 0);
     var r3d = [];
@@ -83,7 +76,7 @@ Enemy.prototype.rotateObjPointTo = function (p, rate) {
         rad = -rad;
     }
 
-    // Step E: rotate the facing direction with the angle and rate
+    // rotate the facing direction with the angle and rate
     rad *= rate;  // actual angle need to rotate from Obj's front
     vec2.rotate(this.getCurrentFrontDir(), this.getCurrentFrontDir(), rad);
     this.getXform().incRotationByRad(rad);

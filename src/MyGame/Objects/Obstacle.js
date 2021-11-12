@@ -1,9 +1,3 @@
-/* 
- * Nicholas Lewis 
- * base class for space obsticles 
- */
-
-
 function Obstacle(spriteRenderable, sizeX, sizeY) 
 {
     GameObject.call(this, spriteRenderable);

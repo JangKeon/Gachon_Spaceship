@@ -1,16 +1,9 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function BossEnemy(spriteSource, atX, atY) 
 {
     // source for the wing image
     this.kSpriteSource = spriteSource;
     
     this.mSprite = new SpriteRenderable(this.kSpriteSource);
-    //325 490
     this.mSprite.setElementPixelPositions(0, 173, 86, 256);
     this.mSprite.getXform().setPosition(atX, atY);
     this.mSprite.getXform().setSize(35, 35);

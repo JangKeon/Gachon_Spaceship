@@ -1,16 +1,9 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function GrayEnemy(spriteSource, atX, atY) 
 {
     // source for the wing image
     this.kSpriteSource = spriteSource;
     
     this.mSprite = new SpriteRenderable(this.kSpriteSource);
-    //325 490
     this.mSprite.setElementPixelPositions(519, 599, 620, 700);
     this.mSprite.getXform().setPosition(atX, atY);
     this.mSprite.getXform().setSize(5, 5);
@@ -34,7 +27,6 @@ GrayEnemy.prototype.draw = function (aCamera)
 
 GrayEnemy.prototype.hit = function(damage){
     Enemy.prototype.hit.call(this, damage);
-    // do somehting cool
 };
 
 GrayEnemy.prototype.update = function(playerShip, asteroids) 

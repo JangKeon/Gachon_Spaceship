@@ -1,9 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function LightEnemy(spriteSource, atX, atY) 
 {
     // source for the wing image
@@ -37,7 +31,6 @@ LightEnemy.prototype.draw = function (aCamera)
 
 LightEnemy.prototype.hit = function(damage){
     Enemy.prototype.hit.call(this, damage);
-    // do somehting cool
 };
 
 LightEnemy.prototype.update = function(playerShip, asteroids) 
