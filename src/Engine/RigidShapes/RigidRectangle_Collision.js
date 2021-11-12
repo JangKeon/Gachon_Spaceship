@@ -1,19 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/*jslint node: true, vars: true, evil: true, bitwise: true */
 "use strict";
-/*global RigidRectangle, vec2 */
 
-/**
- * Decides on which collision function to call based on the type of shape passed
- * @memberOf RigidRectangle 
- * @param {RigidShape} otherShape The other shape that's involved
- * @param {CollisionInfo} collisionInfo Where the collision information is stored
- * @returns {Boolean} The results of the collision
- */
 RigidRectangle.prototype.collisionTest = function (otherShape, collisionInfo) {
     var status = false;
     if (otherShape.mType === "RigidCircle") {
@@ -24,21 +10,12 @@ RigidRectangle.prototype.collisionTest = function (otherShape, collisionInfo) {
     return status;
 };
 
-/**
- * default constructor
- * @ignore
- * @returns {SupportStruct}
- */
 var SupportStruct = function () {
     this.mSupportPoint = null;
     this.mSupportPointDist = 0;
 };
 var tmpSupport = new SupportStruct();
-/**
- * Finds the support point.
- * @param {type} dir
- * @param {type} ptOnEdge
- */
+
 RigidRectangle.prototype.findSupportPoint = function (dir, ptOnEdge) {
     //the longest project length
     var vToEdge = [0, 0];
@@ -52,7 +29,6 @@ RigidRectangle.prototype.findSupportPoint = function (dir, ptOnEdge) {
         projection = vec2.dot(vToEdge, dir);
         
         //find the longest distance with certain edge
-        //dir is -n direction, so the distance should be positive       
         if ((projection > 0) && (projection > tmpSupport.mSupportPointDist)) {
             tmpSupport.mSupportPoint = this.mVertex[i];
             tmpSupport.mSupportPointDist = projection;
@@ -60,14 +36,6 @@ RigidRectangle.prototype.findSupportPoint = function (dir, ptOnEdge) {
     }
 };
 
-/**
- * Find the shortest axis that overlapping
- * @memberOf RigidRectangle
- * @param {RigidRectangle} otherRect  Another rectangle that being tested
- * @param {CollisionInfo} collisionInfo  Record the collision information
- * @returns {Boolean} True if has overlap part in all four directions.
- * the code is convert from http://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics-engine-oriented-rigid-bodies--gamedev-8032
- */
 RigidRectangle.prototype.findAxisLeastPenetration = function (otherRect, collisionInfo) {
 
     var n;
@@ -84,11 +52,9 @@ RigidRectangle.prototype.findAxisLeastPenetration = function (otherRect, collisi
         // Retrieve a face normal from A
         n = this.mFaceNormal[i];
 
-        // use -n as direction and the vectex on edge i as point on edge    
         vec2.scale(dir, n, -1);
         var ptOnEdge = this.mVertex[i];
         // find the support on B
-        // the point has longest distance with edge i 
         otherRect.findSupportPoint(dir, ptOnEdge);
         hasSupport = (tmpSupport.mSupportPoint !== null);
         
@@ -110,14 +76,7 @@ RigidRectangle.prototype.findAxisLeastPenetration = function (otherRect, collisi
     }
     return hasSupport;
 };
-/**
- * Check for collision between RigidRectangle and RigidRectangle
- * @param {RigidRectangle} r1 RigidRectangle object to check for collision status
- * @param {RigidRectangle} r2 RigidRectangle object to check for collision status against
- * @param {CollisionInfo} collisionInfo Collision info of collision
- * @returns {Boolean} true if collision occurs
- * @memberOf RigidRectangle
- */    
+
 var collisionInfoR1 = new CollisionInfo();
 var collisionInfoR2 = new CollisionInfo();
 RigidRectangle.prototype.collideRectRect = function (r1, r2, collisionInfo) {

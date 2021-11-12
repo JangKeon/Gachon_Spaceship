@@ -1,21 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/*jslint node: true, vars: true, evil: true, bitwise: true */
 "use strict";
-/* global RigidRectangle, vec2 */
 
-/**
- * Determines if there is collision between the shapes
- * @memberOf RigidRectangle
- * @param {float[]} v The rectangle vertex that is closest to the center of the circle
- * @param {float[]} circPt The center of the circle
- * @param {float} r The radius of the circle
- * @param {CollisionInfo} info Used to store the collision info
- * @returns {Boolean} If there is collision between the 2 shapes
- */
 RigidRectangle.prototype.checkCircRecVertex = function(v, circPt, r, info) {
     //the center of circle is in corner region of mVertex[nearestEdge]
     var dis = vec2.length(v);
@@ -31,13 +15,6 @@ RigidRectangle.prototype.checkCircRecVertex = function(v, circPt, r, info) {
     return true;
 };
 
-/**
- * Check for collision between RigidRectangle and Circle
- * @param {Circle} otherCir circle to check for collision status against
- * @param {CollisionInfo} collisionInfo Where the Collision Info is stored
- * @returns {Boolean} true if collision occurs
- * @memberOf RigidRectangle
- */
 RigidRectangle.prototype.collideRectCirc = function (otherCir, collisionInfo) {
     var outside = false;
     var bestDistance = -Number.MAX_VALUE;
@@ -69,11 +46,7 @@ RigidRectangle.prototype.collideRectCirc = function (otherCir, collisionInfo) {
         collisionInfo.setInfo(dis, this.mFaceNormal[nearestEdge], ptAtCirc);
         return true;
     }
-    
     //the center of circle is outside of rectangle
-
-    //v1 is from left vertex of face to center of circle 
-    //v2 is from left vertex of face to right vertex of face
     var v1 = [0, 0], v2 = [0, 0];
     vec2.subtract(v1, circ2Pos, this.mVertex[nearestEdge]);
     vec2.subtract(v2, this.mVertex[(nearestEdge + 1) % 4], this.mVertex[nearestEdge]);
@@ -82,10 +55,6 @@ RigidRectangle.prototype.collideRectCirc = function (otherCir, collisionInfo) {
     if (dot < 0) {
         return this.checkCircRecVertex(v1, circ2Pos, otherCir.mRadius, collisionInfo);
     } else {
-        //the center of circle is in corner region of mVertex[nearestEdge+1]
-        
-        //v1 is from right vertex of face to center of circle 
-        //v2 is from right vertex of face to left vertex of face
         vec2.subtract(v1, circ2Pos, this.mVertex[(nearestEdge + 1) % 4]);
         vec2.scale(v2, v2, -1);
         dot = vec2.dot(v1, v2); 
