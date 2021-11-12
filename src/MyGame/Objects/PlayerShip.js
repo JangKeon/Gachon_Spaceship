@@ -1,15 +1,4 @@
-/* File: PlayerShip.js 
- *
- * Creates and initializes a Minion object
- * overrides the update function of GameObject to define
- * simple sprite animation behavior behavior
- */
-
-/*jslint node: true, vars: true */
-/*global gEngine: false, GameObject: false, TextureRenderable: false */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict"; 
 
 var kShipWidth = 6 * 0.5;
 var kShipHeight = 4.8 * 0.5;
@@ -59,7 +48,7 @@ function PlayerShip(spriteTexture, atX, atY, size, light)
     r.setFriction(0);
     this.setRigidBody(r);
     WASDObj.call(this);
-    //this is spawing as invisible?????
+    //this is spawing as invisible
     this.toggleDrawRenderable();
     this.toggleDrawRigidShape();
 }

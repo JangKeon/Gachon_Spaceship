@@ -1,15 +1,8 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function Missile(spriteSource) 
 {
     // source for the wing image
     this.kSpriteSource = spriteSource;
     this.mSprite = new SpriteRenderable(this.kSpriteSource);
-    //325 490
     this.mSprite.setElementPixelPositions(576, 600, 700, 724);
     this.mSprite.getXform().setSize(5, 5);
   

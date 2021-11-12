@@ -1,13 +1,3 @@
-/* File: Arena.js 
- *
- */
-
-/*jslint node: true, vars: true */
-/*global gEngine, Scene, GameObjectset, TextureObject, Camera, vec2,
-  FontRenderable, SpriteRenderable, LineRenderable,
-  GameObject */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
 "use strict";
 function Arena(x,y,w,h,res,frct,s1,s2, art, p){
     this.mShapes = new GameObjectSet();
