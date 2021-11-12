@@ -2,15 +2,10 @@
 "use strict";  
 var gEngine = gEngine || { };
 
-<<<<<<< HEAD
-gEngine.ResourceMap = (function () {
-   
-=======
+
  
 gEngine.ResourceMap = (function () {
     
-     
->>>>>>> bdabaddf8b438c66e007560ac51ba29de0d57320
     var MapEntry = function (rName) {
         this.mAsset = rName;
         this.mRefCount = 1;
@@ -95,15 +90,8 @@ gEngine.ResourceMap = (function () {
     var getNumOutstandingLoads = function() {
         return mNumOutstandingLoads;
     };
-<<<<<<< HEAD
-    var mPublic = {
-        
-=======
-    //</editor-fold>
-
      var mPublic = {
-        //<editor-fold desc="asynchronous resource loading support">
->>>>>>> bdabaddf8b438c66e007560ac51ba29de0d57320
+
         asyncLoadRequested: asyncLoadRequested,
         asyncLoadCompleted: asyncLoadCompleted,
         setLoadCompleteCallback: setLoadCompleteCallback,

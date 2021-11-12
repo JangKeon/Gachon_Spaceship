@@ -1,15 +1,8 @@
-
 "use strict";  
 
-<<<<<<< HEAD
 var gEngine = gEngine || { };
 
-=======
- 
-var gEngine = gEngine || { };
 
- 
->>>>>>> bdabaddf8b438c66e007560ac51ba29de0d57320
 function CharacterInfo() {
   // in texture coordinate (0 to 1) maps to the entire image
     this.mTexCoordLeft = 0;
@@ -27,10 +20,7 @@ function CharacterInfo() {
     this.mCharAspectRatio = 1;
 }
 
-<<<<<<< HEAD
-=======
- 
->>>>>>> bdabaddf8b438c66e007560ac51ba29de0d57320
+
 gEngine.Fonts = (function () {
     
     var _storeLoadedFont = function (fontInfoSourceString) {
