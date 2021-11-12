@@ -1,9 +1,9 @@
 
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict";  
 
  
 var gEngine = gEngine || { };
-    // initialize the variable while ensuring it is not redefined
+    
 
  
 gEngine.Physics = (function () {

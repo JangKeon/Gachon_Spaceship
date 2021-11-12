@@ -1,4 +1,4 @@
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict";  
 
  
 function TiledGameObject(renderableObj) {

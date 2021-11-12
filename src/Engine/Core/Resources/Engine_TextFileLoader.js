@@ -1,9 +1,13 @@
- "use strict";  
+ 
 
+"use strict";   
+
+ 
 var gEngine = gEngine || { };
 
+ 
 gEngine.TextFileLoader = (function () {
-    
+     
     var eTextFileType = Object.freeze({
         eXMLFile: 0,
         eTextFile: 1
@@ -53,8 +57,7 @@ gEngine.TextFileLoader = (function () {
         gEngine.ResourceMap.unloadAsset(fileName);
     };
 
-    // Public interface for this object. Anything not in here will
-    // not be accessable.
+     
     var mPublic = {
         loadTextFile: loadTextFile,
         unloadTextFile: unloadTextFile,

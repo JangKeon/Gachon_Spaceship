@@ -1,10 +1,7 @@
 
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict";   
 
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+ 
 var gEngine = gEngine || { };
 
  
@@ -23,15 +20,13 @@ gEngine.VertexBuffer = (function () {
         -0.5, -0.5, 0.0
     ];
 
-    // Second: define the corresponding texture coordinates
-    var textureCoordinates = [
+     var textureCoordinates = [
         1.0, 1.0,
         0.0, 1.0,
         1.0, 0.0,
         0.0, 0.0
     ];
-    // this is to support the debugging of physics engine
-    var verticesOfLine = [
+     var verticesOfLine = [
         0.5, 0.5, 0.0,
         -0.5, -0.5, 0.0
     ];
