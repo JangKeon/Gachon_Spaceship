@@ -1,5 +1,4 @@
- 
-"use strict";
+ "use strict";
 
  
 Camera.prototype.update = function () {
