@@ -1,14 +1,4 @@
-/*
- * File: Engine_LayerManager.js 
- * Central storage for all elements that would be drawn 
- */
-/*jslint node: true, vars: true, white: true*/
-/*global GameObjectSet */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-//  Global variable EngineCore
-//  the following syntax enforces there can only be one instance of EngineCore object
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+ "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 /**
  * Static refrence to gEngine
@@ -31,8 +21,6 @@ gEngine.eLayer = Object.freeze({
 });
 
 /**
- * Global variable EngineLayerManager<p>
- * Central storage for all elements that would be drawn 
  * @class gEngine.eLayer
  * @type gEngine.LayerManager
  */

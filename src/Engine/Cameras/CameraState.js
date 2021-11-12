@@ -1,12 +1,4 @@
-/* 
- * File: CameraState.js
- * Defines the state of a camera to faciliate the manipulation of this state
- */
-
-/*jslint node: true, vars: true, bitwise: true */
-/*global gEngine, Interpolate, InterpolateVec2 */
-/* find out more about jslint: http://www.jslint.com/help.html */
-"use strict";
+ "use strict";
 
 /**
  * Default Constructor
@@ -22,7 +14,6 @@ function CameraState(center, width) {
     this.mWidth = new Interpolate(width, this.kCycles, this.kRate);
 }
 
-// <editor-fold desc="Public Methods">
 /**
  * Return the CameraState center
  * @memberOf CameraState

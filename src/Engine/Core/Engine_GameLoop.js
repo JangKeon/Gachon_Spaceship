@@ -1,10 +1,4 @@
-/*
- * File: EngineCore_Loop.js 
- * Implements the game loop functionality of gEngine
- */
-/*jslint node: true, vars: true, white: true */
-/*global gEngine: false, requestAnimationFrame: false, LoadingIconConfig: false */
-/* find out more about jslint: http://www.jslint.com/help.html */
+ 
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 

@@ -1,27 +1,6 @@
-/* File: ParallexGameObject.js 
- *
- * Represent an GameObject located at some distance D away, thus 
- * resulting in slower movements
- * 
- * Passed in scale: 
- *     ==1: means same as actors
- *     > 1: farther away, slows down inversely (scale==2 slows down twice)
- *     < 1: closer, speeds up inversely (scale==0.5 speeds up twice)
- */
-
-/*jslint node: true, vars: true, white: true */
-/*global gEngine, TiledGameObject, vec2  */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 /**
- * Default Contructor<p>
- * Represent an GameObject located at some distance D away, thus resulting in slower movements<p>
- * Passed in scale:<p>
- *      ==1: means same as actors<p>
- *      > 1: farther away, slows down inversely (scale==2 slows down twice)<p>
- *      < 1: closer, speeds up inversely (scale==0.5 speeds up twice)
  * 
  * @param {Renderable} renderableObj Renderable to parallax
  * @param {Number} scale Parallax scale

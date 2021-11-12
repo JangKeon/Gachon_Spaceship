@@ -1,13 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-/*jslint node: true, vars: true, white: true */
-/*global vec2, CollisionInfo */
-/* find out more about jslint: http://www.jslint.com/help.html */
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
@@ -19,8 +9,7 @@ var gEngine = gEngine || { };
     // initialize the variable while ensuring it is not redefined
 
 /**
- * Default Constructor<p>
- * Physics engine supporting projection and impulse collision resolution. <p>
+ 
  * @class gEngine.Physics
  * @type gEngine.Physics
  */

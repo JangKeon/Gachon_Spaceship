@@ -1,11 +1,4 @@
-/* 
- * File: Camera_Input.js
- * Defines the functions that supports mouse input coordinate transforms
- */
 
-/*jslint node: true, vars: true, bitwise: true */
-/*global gEngine, Camera, BoundingBox, vec2, CameraShake */
-/* find out more about jslint: http://www.jslint.com/help.html */
 "use strict";
 
 /**

@@ -1,12 +1,3 @@
-/* File: GameObject_PixelCollision.js 
- *
- * Implements the pixelTouch() function of GameObject
- */
-
-/*jslint node: true, vars: true */
-/*global GameObject, vec2 */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 /**

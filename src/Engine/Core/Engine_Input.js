@@ -1,13 +1,4 @@
-/*
- * File: EngineCore_Input.js 
- * Provides input support
- */
-/*jslint node: true, vars: true */
-/*global document, window*/
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+ "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 /**
  * Static refrence to gEngine

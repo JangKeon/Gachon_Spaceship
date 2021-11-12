@@ -1,16 +1,8 @@
-/* File: GameObject.js 
- *
- * Abstracts a game object's behavior and apparance
- */
-
-/*jslint node: true, vars: true */
-/*global gEngine, vec2, vec3, BoundingBox */
-/* find out more about jslint: http://www.jslint.com/help.html */
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 /**
- * Default Constructor<p>
+ * 
  * Abstracts a game object's behavior and apparance
  * @class GameObject
  * @param {Renderable} renderableObj Renderable to assotiate to GameObject
@@ -27,7 +19,7 @@ function GameObject(renderableObj) {
 }
 
 /**
- * Return the GameObject's Transform
+ * 
  * @returns {Transform} Gameobject Transform
  * @memberOf GameObject
  */

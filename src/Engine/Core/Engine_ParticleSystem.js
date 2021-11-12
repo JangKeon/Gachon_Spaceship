@@ -1,12 +1,4 @@
-/*
- * File: Engine_Particle.js 
- * Particle System support
- */
-/*jslint node: true, vars: true, white: true */
-/*global vec2 */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+ "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 /**
  * Static refrence to gEngine
@@ -16,8 +8,7 @@ var gEngine = gEngine || { };
     // initialize the variable while ensuring it is not redefined
 
 /**
- * Default Constructor
- * Particle System support
+  
  * @type gEngine.ParticleSystem
  * @class gEngine.ParticleSystem
  */

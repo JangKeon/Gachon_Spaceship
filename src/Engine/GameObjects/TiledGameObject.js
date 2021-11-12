@@ -1,12 +1,3 @@
-/* File: TiledGameObject.js 
- *
- * Infinitely tiled, assume X/Y alignments
- */
-
-/*jslint node: true, vars: true, white: true, bitwise: true */
-/*global gEngine, GameObject, vec2, BoundingBox, alert  */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 /**

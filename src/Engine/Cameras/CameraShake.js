@@ -1,12 +1,4 @@
-/* 
- * File: CameraShake.js
- * Defines a damped simple harmonic motion to simulate camera shakie
- */
-
-/*jslint node: true, vars: true, bitwise: true */
-/*global gEngine, vec2, ShakePosition */
-/* find out more about jslint: http://www.jslint.com/help.html */
-"use strict";
+ "use strict";
 
 /**
  * Defines a damped simple harmonic motion to simulate camera shake<p>

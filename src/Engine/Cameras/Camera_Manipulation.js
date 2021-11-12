@@ -1,11 +1,4 @@
-/* 
- * File: Camera_Manipulation.js
- * Defines the functions that supports camera manipulations
- */
-
-/*jslint node: true, vars: true, bitwise: true */
-/*global gEngine, Camera, BoundingBox, vec2, CameraShake */
-/* find out more about jslint: http://www.jslint.com/help.html */
+ 
 "use strict";
 
 /**
@@ -40,8 +33,7 @@ Camera.prototype.panBy = function (dx, dy) {
 };
 
 /**
- * pan the camera to ensure aXform is within camera bounds<p>
- * this is complementary to the ClampAtBound: instead of clamping aXform, now, move the camera.
+  
  * @memberOf Camera
  * @param {Transform} aXform Transform to clamp the Camera to
  * @param {Number} zone distance from the camera border to collide with
@@ -80,10 +72,7 @@ Camera.prototype.panTo = function (cx, cy) {
 };
 
 /**
- * zoom with respect to the center<p>
- * zoom > 1 ==> zooming out, see more of the world<p>
- * zoom < 1 ==> zooming in, see less of the world, more detailed<p>
- * zoom < 0 is ignored
+ 
  * @memberOf Camera
  * @param {Number} zoom to scale the camera width
  * @returns {void}
@@ -95,10 +84,7 @@ Camera.prototype.zoomBy = function (zoom) {
 };
 
 /**
- * zoom towards (pX, pY) by zoom:<p>
- * zoom > 1 ==> zooming out, see more of the world<p>
- * zoom < 1 ==> zooming in, see less of the world, more detailed<p>
- * zoom < 0 is ignored
+  
  * @memberOf Camera
  * @param {vec2} pos Point to scale the camera with respect to
  * @param {Number} zoom to scale the camera width

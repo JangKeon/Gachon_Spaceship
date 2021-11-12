@@ -1,11 +1,4 @@
-/* 
- * File: Camera.js
- * Encapsulates the user define WC and Viewport functionality
- */
-
-/*jslint node: true, vars: true, bitwise: true */
-/*global gEngine, SimpleShader, Renderable, mat4, vec2, vec3, BoundingBox, CameraState */
-/* find out more about jslint: http://www.jslint.com/help.html */
+ 
 "use strict";
 
 /**
@@ -21,12 +14,7 @@ function PerRenderCache() {
 }
 
 /**
- * Default Constructor<p>
- * Height of the user defined WC is implicitly defined by the viewport aspect ratio<p>
- * viewportRect: an array of 4 elements<p>
- *      [0] [1]: (x,y) position of lower left corner on the canvas (in pixel)<p>
- *      [2]: width of viewport<p>
- *      [3]: height of viewport
+ 
  * @class Camera
  * @param {vec2} wcCenter Center position of Camera
  * @param {Number} wcWidth Width of Camera
@@ -59,13 +47,9 @@ function Camera(wcCenter, wcWidth, viewportArray, bound) {
     // background color
     this.mBgColor = [0.8, 0.8, 0.8, 1]; // RGB and Alpha
 
-    // per-rendering cached information
-    // needed for computing transforms for shaders
-    // updated each time in SetupViewProjection()
+    
     this.mRenderCache = new PerRenderCache();
-        // SHOULD NOT be used except 
-        // xform operations during the rendering
-        // Client game should not access this!
+         
 }
 
 /**
@@ -80,9 +64,7 @@ Camera.eViewport = Object.freeze({
     eHeight: 3
 });
 
-// <editor-fold desc="Public Methods">
-// <editor-fold desc="Getter/Setter">
-// <editor-fold desc="setter/getter of WC and viewport">
+ 
 /**
  * Set the World Coordinate center position
  * @memberOf Camera
