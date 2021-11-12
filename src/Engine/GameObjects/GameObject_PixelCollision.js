@@ -2,8 +2,7 @@
 
  
 GameObject.prototype.pixelTouches = function (otherObj, wcTouchPos) {
-    // only continue if both objects have getColorArray defined 
-    // if defined, should have other texture intersection support!
+     // if defined, should have other texture intersection support!
     var pixelTouch = false;
     var myRen = this.getRenderable();
     var otherRen = otherObj.getRenderable();

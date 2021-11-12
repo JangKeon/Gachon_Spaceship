@@ -1,13 +1,5 @@
 "use strict";   
-
-/**
- * 
- * @param {Renderable} renderableObj Renderable to parallax
- * @param {Number} scale Parallax scale
- * @param {Camera} aCamera Camera to refrence
- * @returns {ParallaxGameObject}
- * @class ParallaxGameObject
- */
+ 
 function ParallaxGameObject(renderableObj, scale, aCamera) {
     this.mRefCamera = aCamera;
     this.mCameraWCCenterRef = vec2.clone(this.mRefCamera.getWCCenter());

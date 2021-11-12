@@ -1,10 +1,6 @@
  
 "use strict";   
 
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
 var gEngine = gEngine || { };
      
 
