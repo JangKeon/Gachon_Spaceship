@@ -1,25 +1,13 @@
  
 
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict";   
 
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+ 
 var gEngine = gEngine || { };
 
-/**
-  
-  
- * @class gEngine.TextFileLoader
- * @type TextFileLoader
- */
+ 
 gEngine.TextFileLoader = (function () {
-    /**
-     * Text file type tokens
-     * @type {enum|eTextFileType}
-     * @memberOf gEngine.TextFileLoader
-     */
+     
     var eTextFileType = Object.freeze({
         eXMLFile: 0,
         eTextFile: 1
@@ -69,8 +57,7 @@ gEngine.TextFileLoader = (function () {
         gEngine.ResourceMap.unloadAsset(fileName);
     };
 
-    // Public interface for this object. Anything not in here will
-    // not be accessable.
+     
     var mPublic = {
         loadTextFile: loadTextFile,
         unloadTextFile: unloadTextFile,

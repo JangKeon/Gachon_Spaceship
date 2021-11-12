@@ -1,12 +1,12 @@
  
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict";   
 
 /**
  * Static refrence to gEngine
  * @type gEngine
  */
 var gEngine = gEngine || { };
-    // initialize the variable while ensuring it is not redefined
+     
 
  
 gEngine.Core = (function () {

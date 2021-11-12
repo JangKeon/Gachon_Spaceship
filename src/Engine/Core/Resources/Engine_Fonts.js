@@ -1,18 +1,10 @@
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+ 
 var gEngine = gEngine || { };
 
-/**
- * for convenenit communication of per-character information<p>
- * all size returned are in normalize unit (range between 0 to 1)
- * @class CharacterInfo
- * @return {CharacterInfo}
- */
+ 
 function CharacterInfo() {
   // in texture coordinate (0 to 1) maps to the entire image
     this.mTexCoordLeft = 0;
@@ -30,11 +22,7 @@ function CharacterInfo() {
     this.mCharAspectRatio = 1;
 }
 
-/**
-  
- * @class gEngine.Fonts
- * @type {gEngine.Fonts}
- */
+ 
 gEngine.Fonts = (function () {
     
     var _storeLoadedFont = function (fontInfoSourceString) {

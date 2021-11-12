@@ -1,22 +1,11 @@
  
 
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict";   
 
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+ 
 var gEngine = gEngine || { };
 
-/**
- * Texture meta data
- * @class TextureInfo
- * @param {String} name Name of Texture
- * @param {Number} w Width of Texture
- * @param {Number} h Height of Texture
- * @param {Number} id ID of Texture
- * @returns {TextureInfo} New instance of TextureInfo
- */
+ 
 function TextureInfo(name, w, h, id) {
     this.mName = name;
     this.mWidth = w;
@@ -25,11 +14,7 @@ function TextureInfo(name, w, h, id) {
     this.mColorArray = null;
 }
 
-/**
- * Provides support for loading and unloading of textures (images)
- * @class gEngine.Textures
- * @type gEngine.Textures
- */
+ 
 gEngine.Textures = (function () {
 
     
@@ -166,8 +151,7 @@ gEngine.Textures = (function () {
         return texInfo.mColorArray;
     };
 
-    // Public interface for this object. Anything not in here will
-    // not be accessable.
+     
     var mPublic = {
         loadTexture: loadTexture,
         unloadTexture: unloadTexture,

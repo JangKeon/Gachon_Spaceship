@@ -9,19 +9,10 @@
  */
 var gEngine = gEngine || { };
 
-/**
- * Default Constructor
- * @class gEngine.ResourceMap
- * @type gEngine.ResourceMap
- */
+ 
 gEngine.ResourceMap = (function () {
     
-    /**
-     * ResourceMap node containing name and refrence count of resource
-     * @memberOf gEngine.ResourceMap
-     * @param {String} rName
-     * @returns {MapEntry}
-     */
+     
     var MapEntry = function (rName) {
         this.mAsset = rName;
         this.mRefCount = 1;
@@ -111,9 +102,7 @@ gEngine.ResourceMap = (function () {
     };
     //</editor-fold>
 
-    // Public interface for this object. Anything not in here will
-    // not be accessable.
-    var mPublic = {
+     var mPublic = {
         //<editor-fold desc="asynchronous resource loading support">
         asyncLoadRequested: asyncLoadRequested,
         asyncLoadCompleted: asyncLoadCompleted,

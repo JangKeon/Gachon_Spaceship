@@ -1,16 +1,9 @@
- "use strict";  // Operate in Strict mode such that variables must be declared before used!
+ "use strict";   
 
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+ 
 var gEngine = gEngine || { };
 
-/**
- * Input Class
- * @class gEngine.Input
- * @type gEngine.Input
- */
+ 
 gEngine.Input = (function () {
     // Key code constants
     /**
