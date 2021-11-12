@@ -1,27 +1,9 @@
-/*
- 
 
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
-
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+"use strict";  
 var gEngine = gEngine || { };
 
-/**
- * Default Constructor
- * @class gEngine.ResourceMap
- * @type gEngine.ResourceMap
- */
 gEngine.ResourceMap = (function () {
-    
-    /**
-     * ResourceMap node containing name and refrence count of resource
-     * @memberOf gEngine.ResourceMap
-     * @param {String} rName
-     * @returns {MapEntry}
-     */
+   
     var MapEntry = function (rName) {
         this.mAsset = rName;
         this.mRefCount = 1;
@@ -57,7 +39,6 @@ gEngine.ResourceMap = (function () {
 
     var _checkForAllLoadCompleted = function () {
         if ((mNumOutstandingLoads === 0) && (mLoadCompleteCallback !== null)) {
-            // ensures the load complete call back will only be called once!
             var funToCall = mLoadCompleteCallback;
             mLoadCompleteCallback = null;
             funToCall();
@@ -71,8 +52,6 @@ gEngine.ResourceMap = (function () {
         _checkForAllLoadCompleted();
     };
 
-    //<editor-fold desc="Asset checking functions">
-     
     var retrieveAsset = function (rName) {
         var r = null;
         if (rName in mResourceMap) {
@@ -109,23 +88,16 @@ gEngine.ResourceMap = (function () {
     var getNumOutstandingLoads = function() {
         return mNumOutstandingLoads;
     };
-    //</editor-fold>
-
-    // Public interface for this object. Anything not in here will
-    // not be accessable.
     var mPublic = {
-        //<editor-fold desc="asynchronous resource loading support">
+        
         asyncLoadRequested: asyncLoadRequested,
         asyncLoadCompleted: asyncLoadCompleted,
         setLoadCompleteCallback: setLoadCompleteCallback,
-        //</editor-fold>
-        //<editor-fold desc="resource storage and reference count support">
         retrieveAsset: retrieveAsset,
         unloadAsset: unloadAsset,
         isAssetLoaded: isAssetLoaded,
         incAssetRefCount: incAssetRefCount,
         getNumOutstandingLoads: getNumOutstandingLoads
-        //</editor-fold>
     };
     return mPublic;
 }());
