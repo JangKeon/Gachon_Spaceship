@@ -1,23 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 "use strict";
 
-/**
- * Creates a text box that accepts user input
- * @param {Array[]} position The position of the text box
- * @param {float} textSize The size of the text and the height of the text 
- * @param {float} width The width of the text box
- * @param {Array[]} color The color of the text box
- * @param {Array[]} textColor The color of the text
- * @param {function} callback The function called when enter is presed
- * @param {object} context Who the function belonged to
- * @class UITextBox
- * @returns {UITextBox}
- */
 function UITextBox(position, textSize, width, color, textColor, callback, context){
     UIText.call(this,"",position,textSize,0,0,textColor);
     this.box = new Renderable();
@@ -42,11 +24,6 @@ function UITextBox(position, textSize, width, color, textColor, callback, contex
 
 gEngine.Core.inheritPrototype(UITextBox,UIText);
 
-/**
- * Update the text box
- * @param {Camera} aCamera The camera that's drawing the text box
- * @memberOf UITextBox
- */
 UITextBox.prototype.update = function(aCamera){
     var xform = this.box.getXform();
     var b = new BoundingBox(xform.getPosition(), xform.getWidth(), xform.getHeight());
@@ -82,10 +59,6 @@ UITextBox.prototype.update = function(aCamera){
     }
 };
 
-/**
- * Draws the text box
- * @param {Camera} aCamera The camera it will be drawn on
- */
 UITextBox.prototype.draw = function(aCamera){
     if(this.mVisible) {
         this._applyUIXform(aCamera);
@@ -101,10 +74,6 @@ UITextBox.prototype.draw = function(aCamera){
     }
 };
 
-/**
- * This handles the key input for the text box
- * @memberOf UITextBox
- */
 UITextBox.prototype.keyCheck = function(){
     var txt = this.getText();
     if(gEngine.Input.isKeyClicked(gEngine.Input.keys.Backspace)){
@@ -124,11 +93,6 @@ UITextBox.prototype.keyCheck = function(){
     }
 };
 
-/**
- * Changes the size and position to be compatible witht the camera
- * @param {Camera} aCamera The camera to adjust for
- * @memberOf UITextBox
- */
 UITextBox.prototype._applyUIXform = function(aCamera) {
     var rendXform = this.getXform();
     var alignOff = this._getAlignmentOffset();  // takes allignment into consideration
@@ -149,11 +113,6 @@ UITextBox.prototype._applyUIXform = function(aCamera) {
         this.line.setVertices(WCPos[0]+this.width+this.mFontRenderable.getSymbolSize()[0]/2-this.lineOffset,WCPos[1]+alignOff[1]+rendXform.getHeight()/2,WCPos[0]+this.width+this.mFontRenderable.getSymbolSize()[0]/2-this.lineOffset,WCPos[1]+alignOff[1]-rendXform.getHeight()/2);
 };
 
-/**
- * Returns the most recent entered value
- * @returns {String}
- * @memberOf UITextBox
- */
 UITextBox.prototype.getEnteredValue = function(){
     return this.mEnteredValue;
 };

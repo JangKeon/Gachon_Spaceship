@@ -1,20 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 "use strict";
-/**
- * A UI class use to assosiate DropDown buttons with each ohter
- * @param {Array[]} position The base location for the list
- * @param {String} text The initial text for the head button
- * @param {int} textSize the size of the text
- * @param {Array[]} textColor the color for the text
- * @param {Array[]} boxColor the color for the box
- * @class UIDropDown
- * @returns {UIDropDown}
- */
+
 function UIDropDown(position,text,textSize,textColor,boxColor){
     GameObjectSet.call(this);
     this.basePosition=position;
@@ -32,11 +17,7 @@ function UIDropDown(position,text,textSize,textColor,boxColor){
 
 gEngine.Core.inheritPrototype(UIDropDown, GameObjectSet);
 
-/**
- * Updates all the DropDown buttons assigned to an instance of this class
- * @param {Camera} aCamera The camera that is drawing the list 
- * @memberOf UIDropDown
- */
+
 UIDropDown.prototype.update = function(aCamera){
     this.headButton.update(aCamera);
     if(this.visible===true){
@@ -63,16 +44,6 @@ UIDropDown.prototype.update = function(aCamera){
     }
 };
 
-/**
- * Adds an entry to the list
- * @param {String} text The text for the new button
- * @param {Array[]} textColor The color for the text
- * @param {Array[]} boxColor The color for the box
- * @param {function} callback The function that is called when this button is clicked
- * @param {object} context The object that is calling the callback function
- * @param {Camera} aCamera The camera that is drawing the list
- * @memberOf UIDropDown
- */
 UIDropDown.prototype.addToSet = function (text, textColor, boxColor, callback, context, aCamera){
     var ypos=this.basePosition[1];
     var pixSize=this.size*(aCamera.getViewport()[2]/aCamera.getWCWidth());
@@ -92,20 +63,13 @@ UIDropDown.prototype.addToSet = function (text, textColor, boxColor, callback, c
         u.setWidth(this.maxWidth);
     }
 };
-/**
- * Flips the visibility of all buttons in the list except the head button
- * @memberOf UIDropDown
- */
+
 UIDropDown.prototype.flipVisible = function(){
     this.visible=!this.visible;
     this.arrow.getXform().incRotationByDegree(180);  
 };
 
-/**
- * Draws the DropDownList
- * @param {Camera} aCamera The camera the list will be drawon on
- * @memberOf UIDropDown
- */
+
 UIDropDown.prototype.draw = function(aCamera){
     this.headButton.draw(aCamera);
     var pos = this.headButton.getBoxPos();
@@ -120,12 +84,6 @@ UIDropDown.prototype.draw = function(aCamera){
     }
 };
 
-/**
- * Gets the head button of the list
- * @returns {UIDDButton}
- * @memberOf UIDropDown
- * 
- */
 UIDropDown.prototype.getHeadButton = function(){
     return this.headButton;
 };
