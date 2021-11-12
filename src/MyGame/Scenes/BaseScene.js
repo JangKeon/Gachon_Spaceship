@@ -1,15 +1,4 @@
-/*
- * File: MyGame.js 
- * This is the logic of our game. 
- */
-
-/*jslint node: true, vars: true */
-/*global gEngine, Scene, GameObjectset, TextureObject, Camera, vec2,
- FontRenderable, SpriteRenderable, LineRenderable,
- GameObject */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict";
 
 function BaseScene()
 {
@@ -49,17 +38,6 @@ BaseScene.prototype.addToScore = function (score)
 {
     this.mScore += score;
 };
-
-// BaseScene.prototype.unloadScene = function ()
-// {
-//     gEngine.Textures.unloadTexture(this.kSpriteSheet);
-//     gEngine.Textures.unloadTexture(this.kBackground);
-//     if (!gEngine.ResourceMap.isAssetLoaded("stats")) {
-//         gEngine.ResourceMap.asyncLoadRequested("stats");
-//     }
-//     var stats = {'score': this.mScore, 'start_time': this.mStartTime, 'end_time': Date.now()};
-//     gEngine.ResourceMap.asyncLoadCompleted("stats", JSON.stringify(stats));
-// };
 
 BaseScene.prototype.asteroidFactory = function (atX, atY, light) {
     var ast1 = new Asteroid(this.kSpriteSheet, atX, atY, light);
@@ -272,8 +250,7 @@ BaseScene.prototype.drawStats = function () {
         this.mSpaceimg.draw(this.mStatsCamera);
 };
 
-// This is the draw function, make sure to setup proper drawing environment, and more
-// importantly, make sure to _NOT_ change any state.
+
 BaseScene.prototype.draw = function ()
 {
     // Step A: clear the canvas
@@ -286,8 +263,6 @@ BaseScene.prototype.draw = function ()
 BaseScene.prototype.removeDeadEnemies = function () {
     var to_remove = [];
     for (var j = 0; j < this.mEnemies.length; ++j) {
-        // TODO Is it possible to assign the "isAlive" variable as 0 when alive 
-        // and then a number when did which adds to the score
         var alive = this.mEnemies[j].isAlive();
         if (alive !== -1) {
             to_remove.push(j);

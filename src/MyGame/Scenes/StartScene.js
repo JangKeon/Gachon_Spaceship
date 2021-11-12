@@ -1,20 +1,8 @@
-/*
- * File: MyGame.js 
- * This is the logic of our game. 
- */
-
-/*jslint node: true, vars: true */
-/*global gEngine, Scene, GameObjectset, TextureObject, Camera, vec2,
- FontRenderable, SpriteRenderable, LineRenderable,
- GameObject */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+"use strict";
 
 function StartScene()
 {
     BaseScene.call(this);
-    //enemy, currTime, startAfterCurrTime, interval, count, radius
     this.mWin = false;
     this.mSpawnManager = null;
 
@@ -112,7 +100,6 @@ StartScene.prototype.drawMessages = function() {
 
 StartScene.prototype.draw = function ()
 {
-    // Step A: clear the canvas
     gEngine.Core.clearCanvas([0.9, 0.9, 0.9, 1]); // clear to light gray
     this.drawMainCam();
     this.drawMessages();
@@ -128,6 +115,5 @@ StartScene.prototype.update = function ()
     if (gEngine.Input.isKeyClicked(gEngine.Input.keys.T)) {
         gEngine.GameLoop.stop();
     }
-    // enemies, currTime, center
 
 };
