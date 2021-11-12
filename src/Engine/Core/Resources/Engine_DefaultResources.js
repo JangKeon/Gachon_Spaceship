@@ -17,34 +17,16 @@ gEngine.DefaultResources = (function () {
     var mGlobalAmbientColor = [0.3, 0.3, 0.3, 1];
     var mGlobalAmbientIntensity = 1;
     
-    /**
-     * Return Global Ambient Intensity Value
-     * @memberOf gEngine.DefaultResources
-     * @returns {Number} Global Ambient Intensity Value
-     */
+     
     var getGlobalAmbientIntensity = function () { return mGlobalAmbientIntensity; };
     
-    /**
-     * Set Global Ambient Intensity Value
-     * @memberOf gEngine.DefaultResources
-     * @param {Number} v Global Ambient Intensity Value
-     * @returns {void}
-     */
+     
     var setGlobalAmbientIntensity = function (v) { mGlobalAmbientIntensity = v; };
     
-    /**
-     * Return Global Ambient Color [R, G, B, A]
-     * @memberOf gEngine.DefaultResources
-     * @returns {Float[]} Global Ambient Color
-     */
+     
     var getGlobalAmbientColor = function () { return mGlobalAmbientColor; };
     
-    /**
-     * Set Global Ambient Color [R, G, B, A]
-     * @memberOf gEngine.DefaultResources
-     * @param {type} v Global Ambient Color
-     * @returns {void}
-     */
+     
     var setGlobalAmbientColor = function (v) { mGlobalAmbientColor = vec4.fromValues(v[0], v[1], v[2], v[3]); };
 
     // Simple Shader
@@ -89,11 +71,7 @@ gEngine.DefaultResources = (function () {
     var UIRadarButtonTexture = "assets/UI/radarbutton.png";
     var UIDropDownArrow = "assets/UI/ddarrow.png";
     
-    /**
-     * Return the Global default font
-     * @memberOf gEngine.DefaultResources
-     * @returns {String} Default font name
-     */
+     
     var getDefaultFont = function () { return kDefaultFont; };
 
     var _createShaders = function (callBackFunction) {
@@ -110,76 +88,33 @@ gEngine.DefaultResources = (function () {
         callBackFunction();
     };
 
-    /**
-     * Return the Constant Color Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {SimpleShader} Simple Shader
-     */
+    
     var getConstColorShader = function () { return mConstColorShader; };
     
-    /**
-     * Return the Texture Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {TextureShader} Texture Shader
-     */
+     
     var getTextureShader = function () { return mTextureShader; };
     
-    /**
-     * Return the Sprite Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {SpriteShader} Sprite Shader
-     */
+     
     var getSpriteShader = function () { return mSpriteShader; };
     
-    /**
-     * Return the Line Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {LineShader} Line Shader
-     */
+     
     var getLineShader = function () { return mLineShader; };
     
-    /**
-     * Return the Light Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {LightShader} Light Shader
-     */
+     
     var getLightShader = function () { return mLightShader; };
     
-    /**
-     * Return the Illum Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {IllumShader} Illum Shader
-     */
+     
     var getIllumShader = function () { return mIllumShader; };
-    
-    /**
-     * Return the Shadow Receiver Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {SpriteShader} Shadow Receiver Shader
-     */
+     
     var getShadowReceiverShader = function () { return mShadowReceiverShader; };
     
-    /**
-     * Return the Shadow Caster Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {ShadowCasterShader} Shadow Caster Shader
-     */
+     
     var getShadowCasterShader = function () { return mShadowCasterShader; };
     
-    /**
-     * Return the Particle Shader
-     * @memberOf gEngine.DefaultResources
-     * @returns {TextureShader} Particle Shader
-     */
+     
     var getParticleShader = function () { return mParticleShader; };
 
-    /**
-     * Initilize Default Resources.<p>
-     * Calls callBackFunction when finished loading.
-     * @memberOf gEngine.DefaultResources
-     * @param {Function} callBackFunction to call after loading completes
-     * @returns {void}
-     */
+     
     var initialize = function (callBackFunction) {
         // constant color shader: SimpleVS, and SimpleFS
         gEngine.TextFileLoader.loadTextFile(kSimpleVS, gEngine.TextFileLoader.eTextFileType.eTextFile);
@@ -219,11 +154,7 @@ gEngine.DefaultResources = (function () {
         gEngine.ResourceMap.setLoadCompleteCallback(function s() {_createShaders(callBackFunction); });
     };
 
-    /**
-     * unload all resources
-     * @memberOf gEngine.DefaultResources
-     * @returns {void}
-     */
+     
     var cleanUp = function () {
         mConstColorShader.cleanUp();
         mTextureShader.cleanUp();

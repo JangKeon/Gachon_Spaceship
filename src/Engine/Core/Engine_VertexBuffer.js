@@ -7,11 +7,7 @@
  */
 var gEngine = gEngine || { };
 
-// The VertexBuffer object
-/**
- * @class gEngine.VertexBuffer
- * @type gEngine.VertexBuffer
- */
+ 
 gEngine.VertexBuffer = (function () {
     // reference to the vertex positions for the square in the gl context
     var mSquareVertexBuffer = null;
@@ -81,32 +77,16 @@ gEngine.VertexBuffer = (function () {
          
     };
 
-    /**
-     * Return reference to the vertex positions for the square in the gl context
-     * @memberOf gEngine.VertexBuffer
-     * @returns {VertexBuffer}
-     */
+     
     var getGLVertexRef = function () { return mSquareVertexBuffer; };
     
-    /**
-     * Return reference to the texture positions for the square vertices in the gl context
-     * @memberOf gEngine.VertexBuffer
-     * @returns {CoordinateBuffer}
-     */
+     
     var getGLTexCoordRef = function () { return mTextureCoordBuffer; };
     
-    /**
-     * Return reference to the texture positions for the square vertices in the gl context
-     * @memberOf gEngine.VertexBuffer
-     * @returns {VertexBuffer}
-     */
+     
     var getGLLineVertexRef = function () { return mLineVertexBuffer; };
 
-    /**
-     * Detaches and removes the resources from the DefaultResources Program.
-     * @memberOf gEngine.VertexBuffer
-     * @returns {void}
-     */
+    
     var cleanUp = function () {
         var gl = gEngine.Core.getGL();
         gl.deleteBuffer(mSquareVertexBuffer);

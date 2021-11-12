@@ -8,11 +8,7 @@
 var gEngine = gEngine || { };
     // initialize the variable while ensuring it is not redefined
 
-/**
- * Global variable EngineCore
- * @class gEngine.Core
- * @type gEngine.Core
- */
+ 
 gEngine.Core = (function () {
     // instance variables
     // The graphical context to draw to
@@ -51,12 +47,7 @@ gEngine.Core = (function () {
      */
     var getGL = function () { return mGL; };
 
-    /**
-     * Loads the scene and starts the gameloop
-     * @memberOf gEngine.Core
-     * @param {Scene} scene  to load
-     * @returns {void}
-     */
+    
     var startScene = function (scene) {
         gEngine.LoadingIconConfig.start();
         scene.loadScene.call(scene); // Called in this way to keep correct context
@@ -64,13 +55,7 @@ gEngine.Core = (function () {
         gEngine.GameLoop.start(scene); // will wait until async loading is done and call scene.initialize()
     };
 
-    /**
-     * initialize all of the EngineCore components
-     * @memberOf gEngine.Core
-     * @param {String} htmlCanvasID
-     * @param {Class} myGame
-     * @returns {void}
-     */
+    
     var initializeEngineCore = function (htmlCanvasID, myGame) {
         _initializeWebGL(htmlCanvasID);
         gEngine.VertexBuffer.initialize();
@@ -83,36 +68,21 @@ gEngine.Core = (function () {
         gEngine.DefaultResources.initialize(function () { startScene(myGame); });
     };
 
-    /**
-     * Clears the draw area and draws one square
-     * @memberOf gEngine.Core
-     * @param {Float} color [R, G, B, A] Color array
-     * @returns {void}
-     */
+    
     var clearCanvas = function (color) {
         mGL.clearColor(color[0], color[1], color[2], color[3]);     // set the color to be cleared
         mGL.clear(mGL.COLOR_BUFFER_BIT | mGL.STENCIL_BUFFER_BIT | mGL.DEPTH_BUFFER_BIT);
                     // clear to the color, stencil bit, and depth buffer bits
     };
 
-    /**
-     * Inherits a SuperClass prototype functions into the SubClass
-     * @memberOf gEngine.Core
-     * @param {Class} subClass class to inherit to
-     * @param {Class} superClass class to inherit from
-     * @returns {void}
-     */
+     
     var inheritPrototype = function (subClass, superClass) {
         var prototype = Object.create(superClass.prototype);
         prototype.constructor = subClass;
         subClass.prototype = prototype;
     };
     
-    /**
-    * Detaches and removes the resources from the DefaultResources Program
-    * @memberOf gEngine.Core
-    * @returns {void}
-     */
+   
     var cleanUp = function () {
         gEngine.DefaultResources.cleanUp();
         gEngine.VertexBuffer.cleanUp();

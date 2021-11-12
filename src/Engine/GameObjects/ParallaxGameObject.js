@@ -17,12 +17,7 @@ function ParallaxGameObject(renderableObj, scale, aCamera) {
 }
 gEngine.Core.inheritPrototype(ParallaxGameObject, TiledGameObject);
 
-/**
- * renderableObj xfrom is accessible, it is in WC space!!<p>
- * GameObject parameters: speed and direction are all in WC space
- * @returns {void}
- * @memberOf ParallaxGameObject
- */
+ 
 ParallaxGameObject.prototype.update = function () {
     // simple default behavior
     this._refPosUpdate(); // check to see if the camera has moved
@@ -38,35 +33,19 @@ ParallaxGameObject.prototype._refPosUpdate = function () {
     vec2.sub(this.mCameraWCCenterRef, this.mCameraWCCenterRef, deltaT); // update WC center ref position
 };
 
-/**
- * Set world coordinate translation delta to change the position of parallax object.
- * @memberOf ParallaxGameObject
- * @param {Number} delta Amount to change the position of parallax object.
- * @returns {undefined}
- * @memberOf ParallaxGameObject
- */
+ 
 ParallaxGameObject.prototype.setWCTranslationBy = function (delta) {
     var f = (1-this.mParallaxScale);
     this.getXform().incXPosBy(-delta[0] * f);
     this.getXform().incYPosBy(-delta[1] * f);
 };
 
-/**
- * Return the Paralax scale
- * @memberOf ParallaxGameObject
- * @returns {Number} parallax scale
- * @memberOf ParallaxGameObject
- */
+ 
 ParallaxGameObject.prototype.getParallaxScale = function () {
     return this.mParallaxScale;
 };
 
-/**
- * Set the Parallax view scale
- * @param {Number} s Scale of parallax
- * @returns {void}
- * @memberOf ParallaxGameObject
- */
+ 
 ParallaxGameObject.prototype.setParallaxScale = function(s) {
     if (s <= 0) {
         this.mParallaxScale = 1;

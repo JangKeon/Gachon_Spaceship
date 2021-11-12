@@ -32,14 +32,7 @@ function TextureInfo(name, w, h, id) {
  */
 gEngine.Textures = (function () {
 
-    /**
-     * This converts an image to the webGL texture format. <p>
-     * This should only be called once the texture is loaded.
-     * @memberOf gEngine.Textures
-     * @param {String} textureName name of the texture to be stored
-     * @param {String} image Image file path
-     * @returns {void}
-     */
+    
     var _processLoadedImage = function (textureName, image) {
         var gl = gEngine.Core.getGL();
 
@@ -62,13 +55,7 @@ gEngine.Textures = (function () {
         gEngine.ResourceMap.asyncLoadCompleted(textureName, texInfo);
     };
 
-    /**
-     * Loads an texture so that it can be drawn.<p>
-     * If already in the map, will do nothing.
-     * @memberOf gEngine.Textures
-     * @param {String} textureName Texture to load from ResourceMap
-     * @returns {void}
-     */
+     
     var loadTexture = function (textureName) {
         if (!(gEngine.ResourceMap.isAssetLoaded(textureName))) {
             // Create new Texture object.
@@ -88,13 +75,7 @@ gEngine.Textures = (function () {
         }
     };
 
-    /**
-     * Remove the reference to allow associated memory <p>
-     * be available for subsequent garbage collection
-     * @memberOf gEngine.Textures
-     * @param {String} textureName Texture to unload from ResourceMap
-     * @returns {void}
-     */
+     
     var unloadTexture = function (textureName) {
         var gl = gEngine.Core.getGL();
         var texInfo = gEngine.ResourceMap.retrieveAsset(textureName);
@@ -126,14 +107,7 @@ gEngine.Textures = (function () {
 
         
     };
-
-    /**
-     * Activate gl.LINEAR_MIPMAP_LINEAR for texture <p>
-     * texture 1 is always normal map for this game engine
-     * @memberOf gEngine.Textures
-     * @param {String} textureName Name of Texture
-     * @returns {void}
-     */
+ 
     var activateNormalMap = function (textureName) {
         var gl = gEngine.Core.getGL();
         var texInfo = gEngine.ResourceMap.retrieveAsset(textureName);
@@ -171,12 +145,7 @@ gEngine.Textures = (function () {
         return gEngine.ResourceMap.retrieveAsset(textureName);
     };
 
-    /**
-     * Return the Color Array of a texture
-     * @memberOf gEngine.Textures
-     * @param {String} textureName Name of Texture to get Color Array
-     * @returns {Float[]}
-     */
+     
     var getColorArray = function (textureName) {
         var texInfo = getTextureInfo(textureName);
         if (texInfo.mColorArray === null) {
