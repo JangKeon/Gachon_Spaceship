@@ -1,24 +1,3 @@
-/*
- * File: ShadowCaster.js
- * Renders a colored image representing the shadowCaster on the receiver
- */
-
-/*jslint node: true, vars: true, white: true */
-/*global gEngine, Renderable, SpriteRenderable, Light, Transform, vec3, Math */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
-
-// shadowCaster:    must be GameObject referencing at least a LightRenderable  
-// shadowReceiver:  must be GameObject referencing at least a SpriteRenderable
-/**
- * Default Constructor<p>
- * Renders a colored image representing the shadowCaster on the receiver
- * @param {ShadowCaster} shadowCaster must be GameObject referencing at least a LightRenderable
- * @param {ShadowReceiver} shadowReceiver  must be GameObject referencing at least a SpriteRenderable
- * @returns {ShadowCaster} New instance of ShadowCaster
- * @class ShadowCaster
- */
 function ShadowCaster (shadowCaster, shadowReceiver) {
     this.mShadowCaster = shadowCaster;  
     this.mShadowReceiver = shadowReceiver;
@@ -32,28 +11,11 @@ function ShadowCaster (shadowCaster, shadowReceiver) {
     this.kReceiverDistanceFudge = 0.6; // Reduce the projection size increase of the caster geometry
 }
 
-/**
- * Set the shadow color
- * @param {Float[]} c new Color of shadow [R, G, B, A]
- * @returns {void}
- * @memberOf ShadowCaster
- */
 ShadowCaster.prototype.setShadowColor = function (c) {
     this.mShadowColor = c;
 };
 
 ShadowCaster.prototype._computeShadowGeometry = function(aLight) {
-    // Remember that z-value determines front/back
-    //      The camera is located a z=some value, looking towards z=0
-    //      The larger the z-value (larger height value) the closer to the camera
-    //      If z > camera.Z, will not be visile
-    
-    // supports casting to the back of a receiver (if receiver is transparent)
-    // then you can see shadow from the camera
-    // this means, even when:
-    //      1. caster is lower than receiver
-    //      2. light is lower than the caster
-    // it is still possible to cast shadow on receiver
     
     var cxf = this.mShadowCaster.getXform();
     var rxf = this.mShadowReceiver.getXform();
@@ -106,12 +68,6 @@ ShadowCaster.prototype._computeShadowGeometry = function(aLight) {
     return true;
 };
 
-/**
- * Draw function called by GameLoop
- * @param {Camera} aCamera Camera to draw too
- * @returns {undefined}
- * @memberOf ShadowCaster
- */
 ShadowCaster.prototype.draw = function(aCamera) {
     // loop through each light in this array, if shadow casting on the light is on
     // compute the proper shadow offset

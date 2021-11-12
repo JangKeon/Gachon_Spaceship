@@ -1,23 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 "use strict";
 
-/**
- * A radio button for UI purposes
- * @param {function} callback The function to be called when the button is released
- * @param {object} context The owner of the callback function
- * @param {Array[]} position The base position for the UIRButton
- * @param {string} text The text for the UIRButton
- * @param {int} textSize The size for the text and the button
- * @param {Array[]} textColor The color for the text
- * @param {Camera} aCamera The camera that the UIRButton will be drawn on
- * @class UIRButton
- * @returns {UIRButton}
- */
 function UIRButton(callback, context, position, text, textSize, textColor, aCamera) {
     this.mBack = new SpriteRenderable("assets/UI/radarbutton.png");
     this.mBack.setElementUVCoordinate(0.0, 1.0, 0.5, 1.0);
@@ -45,20 +27,10 @@ function UIRButton(callback, context, position, text, textSize, textColor, aCame
 }
 gEngine.Core.inheritPrototype(UIRButton, UIElement);
 
-/**
- * Returns the UIText on the UIRButton
- * @memberOf UIRButton
- * @returns {UIText}
- */
 UIRButton.prototype.getText = function() {
     return this.mText;
 };
 
-/**
- * Draws the UIRButton on the passed camera
- * @param {Camera} aCamera The camera to draw the button on
- * @memberOf UIRButton
- */
 UIRButton.prototype.draw = function (aCamera) {
     UIElement.prototype.draw.call(this, aCamera);
     
@@ -66,24 +38,15 @@ UIRButton.prototype.draw = function (aCamera) {
         this.mText.draw(aCamera);
 };
 
-/**
- * Updates the UIRButton
- * @memberOf UIRButton
- */
 UIRButton.prototype.update = function () {
-    UIElement.prototype.update.call(this);
-    
+    UIElement.prototype.update.call(this);   
     this.mClick = false;
-   
-    //make sure the button text stays on the button
-    //this.mText.getUIXform().setPosition(uiXform.getXPos(), uiXform.getYPos());
     
     //get the mouse position, and if its over the button
     var mousePos = vec2.fromValues(gEngine.Input.getMousePosX(),
                                 gEngine.Input.getMousePosY());
     var mouseOver = this.getUIBBox().containsPoint(mousePos[0], mousePos[1]);
     
-
     //start simple, just do callback when clicked
     if(gEngine.Input.isButtonClicked(gEngine.Input.mouseButton.Left)){
         if(mouseOver){
@@ -98,55 +61,27 @@ UIRButton.prototype.update = function () {
     }
 };
 
-/**
- * Sets the text for the UIRButton
- * @param {String} text The new text for the UIRButton
- * @memberOf UIRButton
- */
 UIRButton.prototype.setTextString = function(text) {
     this.mText.setText(text);
 };
 
-/**
- * Sets the text's color
- * @param {Array[]} color The new text color
- * @memberOf UIRButton
- */
 UIRButton.prototype.setTextColor = function(color) {
     this.mText.setColor(color);
 };
 
-/**
- * Set the height of the text
- * @param {int} height The new height
- * @memberOf UIRButton
- */
 UIRButton.prototype.setTextHeight = function(height) {
     this.mText.setTextHeight(height);
 };
 
-/**
- * Resets the radio button back to a non-clicked state
- * @memberOf UIRButton
- */
 UIRButton.prototype.deselect = function(){
     this.mBack.setElementUVCoordinate(0.0, 1.0, 0.5, 1.0);
     this.mClick = false;
 };
 
-/**
- * Checks whether if the button was clicked this update
- * @memberOf UIRButton
- * @returns {Boolean} If the button was clicked
- */
 UIRButton.prototype.getClick = function(){
     return this.mClick;
 };
-/**
- * This adjusts the button so it can be drawn by the camera
- * @param {Camera} aCamera the camera to adjust for
- * @memberOf UIRButton
- */
+
 UIRButton.prototype._applyUIXform = function(aCamera) {
     var rendXform = this.getXform();
     var WCPos = aCamera.VPpixelPosToWC(this.mUIXform.getPosition());
