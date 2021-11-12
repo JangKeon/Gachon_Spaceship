@@ -1,25 +1,9 @@
- 
+ "use strict";  
 
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
-
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
 var gEngine = gEngine || { };
 
-/**
-  
-  
- * @class gEngine.TextFileLoader
- * @type TextFileLoader
- */
 gEngine.TextFileLoader = (function () {
-    /**
-     * Text file type tokens
-     * @type {enum|eTextFileType}
-     * @memberOf gEngine.TextFileLoader
-     */
+    
     var eTextFileType = Object.freeze({
         eXMLFile: 0,
         eTextFile: 1
