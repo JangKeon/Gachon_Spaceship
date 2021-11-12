@@ -1,25 +1,11 @@
-/*
- * File: EngineCore_Loop.js 
- * Implements the game loop functionality of gEngine
- */
-/*jslint node: true, vars: true, white: true */
-/*global gEngine: false, requestAnimationFrame: false, LoadingIconConfig: false */
-/* find out more about jslint: http://www.jslint.com/help.html */
+ 
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+ 
 var gEngine = gEngine || { };
 
-/**
- * Global variable EngineGameLoop<p>
- * Implements the game loop functionality of gEngine
- * @class gEngine.GameLoop
- * @type gEngine.GameLoop
- */
+ 
 gEngine.GameLoop = (function () {
     var kFPS = 60;          // Frames per second
     var kFrameTime = 1 / kFPS;
@@ -77,12 +63,7 @@ gEngine.GameLoop = (function () {
         requestAnimationFrame(function () { _runLoop.call(mMyGame); });
     };
 
-    /**
-     * Start the Gameloop's Loop
-     * @memberOf gEngine.GameLoop
-     * @param {Scene} myGame to set as the active scene
-     * @returns {void}
-     */
+     
     var start = function (myGame) {
         mMyGame = myGame;
         gEngine.ResourceMap.setLoadCompleteCallback(
@@ -94,20 +75,12 @@ gEngine.GameLoop = (function () {
         );
     };
 
-    /**
-     * Stop the Gameloop's Loop
-     * @memberOf gEngine.GameLoop
-     * @returns {void}
-     */
+    
     var stop = function () {
         mIsLoopRunning = false;
     };
     
-    /**
-     * Return the interval time of the GameLoop
-     * @memberOf gEngine.GameLoop
-     * @returns {Number} Interval time
-     */
+     
     var getUpdateIntervalInSeconds = function () {
         return kFrameTime;
     };

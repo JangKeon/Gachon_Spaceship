@@ -1,29 +1,11 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
-/*jslint node: true, vars: true, white: true */
-/*global vec2, CollisionInfo */
-/* find out more about jslint: http://www.jslint.com/help.html */
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+ 
 var gEngine = gEngine || { };
     // initialize the variable while ensuring it is not redefined
 
-/**
- * Default Constructor<p>
- * Physics engine supporting projection and impulse collision resolution. <p>
- * @class gEngine.Physics
- * @type gEngine.Physics
- */
+ 
 gEngine.Physics = (function () {
 
     var mSystemtAcceleration = [0, 0];        // system-wide default acceleration //set to none for space game
@@ -33,66 +15,34 @@ gEngine.Physics = (function () {
     var mCorrectPosition  = true;
     var mHasMotion = true;
     
-    /**
-     * Return Acceleration
-     * @memberOf gEngine.Physics
-     * @returns {Float[]} Current Acceleration [X, Y]
-     */
+     
     var getSystemtAcceleration = function() { return mSystemtAcceleration; };
-    /**
-     * Sets mCorrectPosition from true to false or vice versa
-     * @memberOf gEngine.Physics
-     */
+     
     var togglePositionalCorrection = function() {
         mCorrectPosition = !mCorrectPosition;
     };
-    /**
-     * Return mCorrectPosition
-     * @memberOf gEngine.Physics
-     * @returns {boolean} mCorrectPosition
-     */
+     
     var getPositionalCorrection = function() {
         return mCorrectPosition;
     };
-    /**
-     * Sets mHasMotion from true to false or vice versa
-     * @memberOf gEngine.Physics
-     */
+     
     var toggleHasMotion= function() {
         mHasMotion = !mHasMotion;
     };
-    /**
-     * Return mHasMotion
-     * @memberOf gEngine.Physics
-     * @returns {boolean} mHasMotion
-     */
+    
     var getHasMotion = function() {
         return mHasMotion;
     };
-    /**
-     * Increment the Relaxation Count
-     * @memberOf gEngine.Physics
-     * @param {float} dc The amount you want to increment the count by
-     */
+     
     var incRelaxationCount = function(dc) {
         mRelaxationCount += dc;
     };
-    /**
-     * Return Relaxation Count
-     * @memberOf gEngine.Physics
-     * @returns {float} mRelaxationCount
-     */
+     
     var getRelaxationCount = function() {
         return mRelaxationCount;
     };
     
-    /**
-     * Corrects the position of both colliding objects passed to it
-     * @memberOf gEngine.Physics
-     * @param {RigidShape} s1 The first rigid shape
-     * @param {RigidShape} s2 The second rigid shape
-     * @param {CollisionInfo} collisionInfo Used for position correction
-     */
+     
     var positionalCorrection = function (s1, s2, collisionInfo) {
         if (!mCorrectPosition)
             return;
@@ -107,13 +57,7 @@ gEngine.Physics = (function () {
         s2.adjustPositionBy(correctionAmount, s2InvMass);
     };
     
-    /**
-     * Updates all of the physics variables of the 2 passed RigidShape
-     * @memberOf gEngine.Physics
-     * @param {RigidShape} s1 The first rigid shape
-     * @param {RigidShape} s2 The second rigid shape
-     * @param {CollisionInfo} collisionInfo Used for adjusting physic values
-     */
+     
     var resolveCollision = function (s1, s2, collisionInfo) {
         var n = collisionInfo.getNormal();
 
@@ -204,12 +148,7 @@ gEngine.Physics = (function () {
         s2.setAngularVelocityDelta(R2crossT * jT * s2.getInertia());
     };
     
-    /**
-     * Handles collisions between all objects within the set
-     * @memberOf gEngine.Physics
-     * @param {GameObjectSet} set The GameObjetSet that you want to run collision update on
-     * @param {CollisionInfo} infoSet Used to collect all collision info
-     */
+    
     var processCollision = function(set, infoSet) {
         var i = 0, j = 0, r = 0;
         var iToj = [0, 0];
