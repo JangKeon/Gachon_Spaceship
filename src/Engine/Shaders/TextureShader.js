@@ -1,24 +1,5 @@
-/* 
- * File: TextureShader.js
- * Subclass from SimpleShader
- * Implements a Textured ShaderProgram object.
- */
-
-/*jslint node: true, vars: true */
-/*global gEngine: false, SimpleShader: false */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
-//<editor-fold desc="constructor">
-/**
- * Default Constructor<p>
- * Implements a Textured ShaderProgram object.
- * @param {string} vertexShaderPath filepath of the Vertex Shader.
- * @param {string} fragmentShaderPath filepath of the Fragment Shader.
- * @returns {TextureShader} An intsnace of TextureShader.
- * @class TextureShader
- */
 function TextureShader(vertexShaderPath, fragmentShaderPath) {
     // Call super class constructor
     SimpleShader.call(this, vertexShaderPath, fragmentShaderPath);  // call SimpleShader constructor
@@ -37,18 +18,6 @@ function TextureShader(vertexShaderPath, fragmentShaderPath) {
 // get all the prototype functions from SimpleShader
 gEngine.Core.inheritPrototype(TextureShader, SimpleShader);
 
-
-//</editor-fold>
-
-// <editor-fold desc="Public Methods">
-
-/**
- * Activate the shader for rendering.
- * @param {float[]} pixelColor [R, G, B, A] Sets the shader pixel color.
- * @param {Camera} aCamera Camera to draw to
- * @returns {void}
- * @memberOf TextureShader
- */
 TextureShader.prototype.activateShader = function (pixelColor, aCamera) {
     // first call the super class's activate
     SimpleShader.prototype.activateShader.call(this, pixelColor, aCamera);
@@ -60,4 +29,3 @@ TextureShader.prototype.activateShader = function (pixelColor, aCamera) {
     gl.vertexAttribPointer(this.mShaderTextureCoordAttribute, 2, gl.FLOAT, false, 0, 0);
     gl.uniform1i(this.mSamplerRef, 0); // <-- binds to texture unit 0
 };
-//</editor-fold>

@@ -1,18 +1,3 @@
-/*
- * File: ShadowReceiver.js
- * ShadowReceiver support's stencil settings
- */
-
-/*jslint node: true, vars: true, white: true */
-/*global ShadowReceiver, gEngine */
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
-
-/* 
-* GL Stencil settings to support rendering to and checking of 
-* the stencil buffer
-*/
 ShadowReceiver.prototype._shadowRecieverStencilOn = function () {
         var gl = gEngine.Core.getGL();
         gl.clear(gl.STENCIL_BUFFER_BIT);

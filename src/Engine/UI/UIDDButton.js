@@ -1,15 +1,3 @@
-/**
- * A Drop Down Button
- * @param {Array[]} position The position for the button
- * @param {String} text The text for the button
- * @param {float} textSize The size for the text
- * @param {Array[]} color The color for the text
- * @param {Array[]} boxColor The color for the box
- * @param {function} callback The function to call when it is clicked
- * @param {object} context who is function belongs to
- * @class UIDDButton
- * @returns {UIDDButton}
- */
 function UIDDButton(position, text, textSize, color, boxColor, callback, context){
     UIText.call(this,text,position,textSize,0,0,color);
     this.box = new Renderable();
@@ -27,11 +15,6 @@ function UIDDButton(position, text, textSize, color, boxColor, callback, context
 
 gEngine.Core.inheritPrototype(UIDDButton,UIText);
 
-/**
- * Update the button
- * @param {type} aCamera The camera that's used to draw this button
- * @memberOf UIDDButton
- */
 UIDDButton.prototype.update = function(aCamera){
     var xform = this.box.getXform();
     var b = new BoundingBox(xform.getPosition(), xform.getWidth(), xform.getHeight());
@@ -55,11 +38,7 @@ UIDDButton.prototype.update = function(aCamera){
     }
 };
 
-/**
- * Draws the button
- * @param {type} aCamera The camera to draw it on
- * @memberOf UIDDButton
- */
+
 UIDDButton.prototype.draw = function(aCamera){
     if(this.mVisible) {
         this._applyUIXform(aCamera);
@@ -68,11 +47,7 @@ UIDDButton.prototype.draw = function(aCamera){
     }
 };
 
-/**
- * Changes the size and position to be compatible witht the camera
- * @param {Camera} aCamera The camera to adjust for
- * @memberOf UIDDButton
- */
+
 UIDDButton.prototype._applyUIXform = function(aCamera) {
     var rendXform = this.getXform();
     var alignOff = this._getAlignmentOffset();  // takes allignment into consideration
@@ -83,57 +58,32 @@ UIDDButton.prototype._applyUIXform = function(aCamera) {
     
 };
 
-/**
- * Sets the width of the button
- * @param {type} w The new width
- * @memberOf UIDDButton
- */
 UIDDButton.prototype.setWidth = function(w){
     this.width=w;
     this.box.getXform().setWidth(this.width+this.offset);
 };
 
-/**
- * Returns the width
- * @returns {float}
- * @memberOf UIDDButton
- */
+
 UIDDButton.prototype.getWidth = function(){
     return this.width;
 };
 
-/**
- * Returns the position of the box renderable
- * @returns {Array[]}
- * @memberOf UIDDButton
- */
+
 UIDDButton.prototype.getBoxPos = function(){
     return this.box.getXform().getPosition();
 };
 
-/**
- * Returns whether the button was clicked this update
- * @returns {Boolean}
- * @memberOf UIDDButton
- */
+
 UIDDButton.prototype.getClick = function(){
     return this.mActive;
 };
 
-/**
- * Set the box renderable to a new color
- * @param {Array[]} color The new color
- * @memberOf UIDDButton
- */
+
 UIDDButton.prototype.setBoxColor = function(color){
     this.box.setColor(color);
 };
 
-/**
- * Return the color of the box renderable
- * @returns {Array[]}
- * @memberOf UIDDButton
- */
+
 UIDDButton.prototype.getBoxColor = function(){
     return this.box.getColor();
 };

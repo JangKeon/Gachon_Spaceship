@@ -1,41 +1,17 @@
-/* File: UIText
- * A UI Element that renders a FontRenderable
- */
-
 "use strict";
-/**
- * The horiziontal alignment of the UIText
- * @memberOf UIText
- * @type enum | eHAlignment
- */
+
 UIText.eHAlignment = Object.freeze({
     eLeft: 0,
     eCenter: 1,
     eRight: 2
 });
 
-/**
- * The vertical alignment of the UIText
- * @memberOf UIText
- * @type enum | eVAlignment
- */
 UIText.eVAlignment = Object.freeze({
    eTop: 0,
    eCenter: 1,
    eBottom: 2
 });
 
-/**
- * Creates text used for UI
- * @class UIText
- * @param {String} text The text that the font will be based on
- * @param {Array[]} position The base position of the UIText
- * @param {int} size The size of the UIText
- * @param {int} hAlign The horizontal align of the UIText
- * @param {int} vAlign The vertical align of the UIText
- * @param {Array[]} color The color of the text
- * @returns {UIText}
- */
 function UIText(text, position, size, hAlign, vAlign, color) {
     this.mFontRenderable = new UITextBoxFont(text);
     this.mFontRenderable.setColor(color);
@@ -54,54 +30,26 @@ function UIText(text, position, size, hAlign, vAlign, color) {
 };
 gEngine.Core.inheritPrototype(UIText, UIElement);
 
-/**
- * Sets the color of the text
- * @param {Array[]} c The color to set the text to
- * @memberOf UIText
- */
 UIText.prototype.setColor = function (c) {
     this.mFontRenderable.setColor(c);
 };
 
-/**
- * Gets the color of the text
- * @memberOf UIText
- */
 UIText.prototype.getColor = function() {
     return this.mFontRenderable.getColor();
 };
 
-/**
- * Sets the text of the UIText
- * @param {String} t The text to change it to
- * @memberOf UIText
- */
 UIText.prototype.setText = function (t) {
     this.mFontRenderable.setText(t);
 };
 
-/**
- * Get the text of the UIText
- * @memberOf UIText
- */
 UIText.prototype.getText = function () {
     return this.mFontRenderable.getText();
 };
 
-/**
- * Set the height of the text
- * @param {int} h The new height to change it to
- * @memberOf UIText
- */
 UIText.prototype.setTextHeight = function (h) {
     this.mFontRenderable.setTextHeight(h);
 };
 
-/**
- * Converts the pixel position to a WC position that the camera to use
- * @param {Camera} aCamera The camera the the conversion will be based off of
- * @memberOf UIText
- */
 UIText.prototype._applyUIXform = function(aCamera) {
     var rendXform = this.getXform();
     var alignOff = this._getAlignmentOffset();  // takes allignment into consideration
@@ -117,10 +65,6 @@ UIText.prototype.draw = function(aCamera){
     }
 };
 
-/**
- * Calculates the position changes needed to match the allignment
- * @memberOf UIText
- */
 UIText.prototype._getAlignmentOffset = function() {
     var alignOff = vec2.fromValues(0, 0);
     var symbolSize = this.mFontRenderable.getSymbolSize();

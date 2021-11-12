@@ -1,17 +1,5 @@
- 
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
-
-/**
- * Static refrence to gEngine
- * @type gEngine
- */
+ "use strict"; 
 var gEngine = gEngine || { };
-
-/**
- * 
- * @class gEngine.DefaultResources
- * @type Function|Engine_DefaultResources_L21.mPublic
- */
 gEngine.DefaultResources = (function () {
     // Global Ambient color
     var mGlobalAmbientColor = [0.3, 0.3, 0.3, 1];
