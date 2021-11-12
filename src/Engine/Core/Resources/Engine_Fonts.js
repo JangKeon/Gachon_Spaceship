@@ -1,11 +1,3 @@
-/*
- * File: EngineCore_Fonts.js 
- * Provides support for loading and unloading of font image and font description
- */
-
-/*jslint node: true, vars: true, evil: true */
-/*global gEngine: false, XMLHttpRequest: false, DOMParser: false, alert: false, XPathResult: false */
-/* find out more about jslint: http://www.jslint.com/help.html */
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
@@ -39,11 +31,7 @@ function CharacterInfo() {
 }
 
 /**
- * Default Constructor<p>
- * Provides support for loading and unloading of font image and font description<p>
- * Note: font name is the path to the fnt file. (without the fnt extension!)<p>
- *    You must also provide the image file in the exact same folder<p>
- *    with the exact same name, with ".png" extension.
+  
  * @class gEngine.Fonts
  * @type {gEngine.Fonts}
  */
@@ -56,12 +44,7 @@ gEngine.Fonts = (function () {
         gEngine.ResourceMap.asyncLoadCompleted(fontName, fontInfo); // to store the actual font info
     };
 
-    /**
-     * Load font into resource map
-     * @memberOf gEngine.Fonts
-     * @param {String} fontName
-     * @return {void}
-     */
+     
     var loadFont = function (fontName) {
         if (!(gEngine.ResourceMap.isAssetLoaded(fontName))) {
             var fontInfoSourceString = fontName + ".fnt";
@@ -77,13 +60,7 @@ gEngine.Fonts = (function () {
         }
     };
 
-    /**
-     * Remove the reference to allow associated memory <p>
-     * be available for subsequent garbage collection
-     * @memberOf gEngine.Fonts
-     * @param {String} fontName
-     * @return {void}
-     */
+    
     var unloadFont = function (fontName) {
         gEngine.ResourceMap.unloadAsset(fontName);
         if (!(gEngine.ResourceMap.isAssetLoaded(fontName))) {
@@ -95,13 +72,7 @@ gEngine.Fonts = (function () {
         }
     };
 
-    /**
-     * Get Character Information for a char from a font
-     * @memberOf gEngine.Fonts
-     * @param {String} fontName Font to get information from
-     * @param {Char} aChar Character to get information as
-     * @return {CharacterInfo} Char information
-     */
+     
     var getCharInfo = function (fontName, aChar) {
         var returnInfo = null;
         var fontInfo = gEngine.ResourceMap.retrieveAsset(fontName);

@@ -1,10 +1,4 @@
-/*
- * File: EngineCore_TextFileLoader.js 
- * loads an text file into resourceMap, either as simple text or as XML
- */
-/*jslint node: true, vars: true, evil: true */
-/*global gEngine: false, XMLHttpRequest: false, DOMParser: false, alert: false */
-/* find out more about jslint: http://www.jslint.com/help.html */
+ 
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
@@ -15,10 +9,8 @@
 var gEngine = gEngine || { };
 
 /**
- * Default Constructor<p>
- * loads an text file into resourceMap, either as simple text or as XML<p>
- * Note: loads the a textfile and when done calls the callbackFunction()<p>
- *      fileName is treated as resource map key, file content is stored as asset
+  
+  
  * @class gEngine.TextFileLoader
  * @type TextFileLoader
  */
@@ -33,14 +25,7 @@ gEngine.TextFileLoader = (function () {
         eTextFile: 1
     });
 
-    /**
-     * Load text file if fileType is a eTextFileType
-     * @memberOf gEngine.TextFileLoader
-     * @param {String} fileName File Path name
-     * @param {enum|eTextFileType} fileType File type token
-     * @param {Function} callbackFunction Callback Function called when file load is complete
-     * @returns {void}
-     */
+    
     var loadTextFile = function (fileName, fileType, callbackFunction) {
         if (!(gEngine.ResourceMap.isAssetLoaded(fileName))) {
             // Update resources in load counter.
@@ -79,12 +64,7 @@ gEngine.TextFileLoader = (function () {
         }
     };
 
-    /**
-     * Unload the TextFile
-     * @memberOf gEngine.TextFileLoader
-     * @param {type} fileName file name to unload
-     * @returns {void}
-     */
+     
     var unloadTextFile = function (fileName) {
         gEngine.ResourceMap.unloadAsset(fileName);
     };

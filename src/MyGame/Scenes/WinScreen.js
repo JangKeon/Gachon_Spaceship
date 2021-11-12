@@ -1,8 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 function WinScreen() {
     BaseScene.call(this);
     this.mWinMsg = null;
@@ -62,7 +57,6 @@ WinScreen.prototype.initialize = function () {
 
 WinScreen.prototype.draw = function ()
 {
-    // Step A: clear the canvas
     gEngine.Core.clearCanvas([0.9, 0.9, 0.9, 1]); // clear to light gray
     this.mCamera.setupViewProjection()
     this.mBackground.draw(this.mCamera);

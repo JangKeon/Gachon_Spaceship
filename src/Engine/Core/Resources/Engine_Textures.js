@@ -1,11 +1,4 @@
-/*
- * File: EngineCore_Texture.js 
- * Provides support for loading and unloading of textures (images)
- */
-
-/*jslint node: true, vars: true */
-/*global Image, Uint8Array, alert */
-/* find out more about jslint: http://www.jslint.com/help.html */
+ 
 
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
@@ -39,14 +32,7 @@ function TextureInfo(name, w, h, id) {
  */
 gEngine.Textures = (function () {
 
-    /**
-     * This converts an image to the webGL texture format. <p>
-     * This should only be called once the texture is loaded.
-     * @memberOf gEngine.Textures
-     * @param {String} textureName name of the texture to be stored
-     * @param {String} image Image file path
-     * @returns {void}
-     */
+    
     var _processLoadedImage = function (textureName, image) {
         var gl = gEngine.Core.getGL();
 
@@ -56,14 +42,7 @@ gEngine.Textures = (function () {
         // bind the texture reference with the current texture functionality in the webGL
         gl.bindTexture(gl.TEXTURE_2D, textureID);
 
-        // Load the texture into the texture data structure with descriptive info.
-        // Parameters:
-        //  1: Which "binding point" or target the texture is being loaded to.
-        //  2: Level of detail. Used for mipmapping. 0 is base texture level.
-        //  3: Internal format. The composition of each element. i.e. pixels.
-        //  4: Format of texel data. Must match internal format.
-        //  5: The data type of the texel data.
-        //  6: Texture Data.
+         
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
 
         // Creates a mipmap for this texture.
@@ -76,13 +55,7 @@ gEngine.Textures = (function () {
         gEngine.ResourceMap.asyncLoadCompleted(textureName, texInfo);
     };
 
-    /**
-     * Loads an texture so that it can be drawn.<p>
-     * If already in the map, will do nothing.
-     * @memberOf gEngine.Textures
-     * @param {String} textureName Texture to load from ResourceMap
-     * @returns {void}
-     */
+     
     var loadTexture = function (textureName) {
         if (!(gEngine.ResourceMap.isAssetLoaded(textureName))) {
             // Create new Texture object.
@@ -102,13 +75,7 @@ gEngine.Textures = (function () {
         }
     };
 
-    /**
-     * Remove the reference to allow associated memory <p>
-     * be available for subsequent garbage collection
-     * @memberOf gEngine.Textures
-     * @param {String} textureName Texture to unload from ResourceMap
-     * @returns {void}
-     */
+     
     var unloadTexture = function (textureName) {
         var gl = gEngine.Core.getGL();
         var texInfo = gEngine.ResourceMap.retrieveAsset(textureName);
@@ -138,18 +105,9 @@ gEngine.Textures = (function () {
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
 
-        // For pixel-graphics where you want the texture to look "sharp" do the following:
-        // gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-        // gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        
     };
-
-    /**
-     * Activate gl.LINEAR_MIPMAP_LINEAR for texture <p>
-     * texture 1 is always normal map for this game engine
-     * @memberOf gEngine.Textures
-     * @param {String} textureName Name of Texture
-     * @returns {void}
-     */
+ 
     var activateNormalMap = function (textureName) {
         var gl = gEngine.Core.getGL();
         var texInfo = gEngine.ResourceMap.retrieveAsset(textureName);
@@ -187,18 +145,11 @@ gEngine.Textures = (function () {
         return gEngine.ResourceMap.retrieveAsset(textureName);
     };
 
-    /**
-     * Return the Color Array of a texture
-     * @memberOf gEngine.Textures
-     * @param {String} textureName Name of Texture to get Color Array
-     * @returns {Float[]}
-     */
+     
     var getColorArray = function (textureName) {
         var texInfo = getTextureInfo(textureName);
         if (texInfo.mColorArray === null) {
-            // create a framebuffer bind it to the texture, and read the color content
-            // Hint from: http://stackoverflow.com/questions/13626606/read-pixels-from-a-webgl-texture 
-            var gl = gEngine.Core.getGL();
+              var gl = gEngine.Core.getGL();
             var fb = gl.createFramebuffer();
             gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
             gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texInfo.mGLTexID, 0);

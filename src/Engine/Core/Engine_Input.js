@@ -1,13 +1,4 @@
-/*
- * File: EngineCore_Input.js 
- * Provides input support
- */
-/*jslint node: true, vars: true */
-/*global document, window*/
-/* find out more about jslint: http://www.jslint.com/help.html */
-
-
-"use strict";  // Operate in Strict mode such that variables must be declared before used!
+ "use strict";  // Operate in Strict mode such that variables must be declared before used!
 
 /**
  * Static refrence to gEngine
@@ -157,13 +148,7 @@ gEngine.Input = (function () {
     //</editor-fold>
     //</editor-fold>
 
-    /**
-     * Initialize the input manager.<p>
-     * Intitalize and intsntiate input listeners.
-     * @memberOf gEngine.Input
-     * @param {GLCanvas} canvasID - HTML canvas
-     * @returns {void}
-     */
+     
     var initialize = function (canvasID) {
         //<editor-fold desc="Keyboard support">
         var i;
@@ -192,11 +177,7 @@ gEngine.Input = (function () {
         //</editor-fold>
     };
 
-    /**
-     * Update function called on Gameloop.
-     * @memberOf gEngine.Input
-     * @returns {void}
-     */
+    
     var update = function () {
         var i;
         for (i = 0; i < kKeys.LastKeyCode; i++) {
@@ -211,79 +192,40 @@ gEngine.Input = (function () {
         }
     };
 
-    /**
-     * Function for GameEngine programmer to test if a key is pressed down<p>
-     * returns if key is pressed.
-     * @memberOf gEngine.Input
-     * @param {Number|keys} keyCode - key to check for pressed state.
-     * @returns {Boolean} true if key is pressed
-     */
+    
     var isKeyPressed = function (keyCode) {
         return mIsKeyPressed[keyCode];
     };
 
-    /**
-     * returns if key is clicked.
-     * @memberOf gEngine.Input
-     * @param {Number|keys} keyCode - key to check for clicked state.
-     * @returns {Boolean} true if key is clicked
-     */
+     
     var isKeyClicked = function (keyCode) {
         return (mIsKeyClicked[keyCode]);
     };
     
-     /**
-     * returns if key is released.
-     * @memberOf gEngine.Input
-     * @param {Number|keys} keyCode - key to check for released state.
-     * @returns {Boolean} true if key is released
-     */
+      
     var isKeyReleased = function (keyCode) {
         return (mIsKeyReleased[keyCode]);
     };
 
-    /**
-     * returns if button is pressed.
-     * @memberOf gEngine.Input
-     * @param {Number|mouseButton} button - button to check for pressed state.
-     * @returns {Boolean} true if button is pressed.
-     */
+     
     var isButtonPressed = function (button) {
         return mIsButtonPressed[button];
     };
 
-    /**
-     * returns if button is clicked.
-     * @memberOf gEngine.Input
-     * @param {Number|mouseButton} button - button to check for ckicked state.
-     * @returns {Boolean} true if button is clicked.
-     */
+    
     var isButtonClicked = function (button) {
         return mIsButtonClicked[button];
     };
     
-     /**
-     * returns if button is released.
-     * @memberOf gEngine.Input
-     * @param {Number|mouseButton} button - button to check for release state.
-     * @returns {Boolean} true if button is released
-     */
+     
     var isButtonReleased = function(button) {
         return mIsButtonReleased[button];
     };
     
-    /**
-     * Returns mouse X position.
-     * @memberOf gEngine.Input
-     * @returns {Number} X position of mouse.
-     */
+     
     var getMousePosX = function () { return mMousePosX; };
     
-    /**
-     * Returns mouse Y position.
-     * @memberOf gEngine.Input
-     * @returns {Number} Y position of mouse.
-     */
+     
     var getMousePosY = function () { return mMousePosY; };
 
     var mPublic = {
